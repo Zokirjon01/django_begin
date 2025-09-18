@@ -1,1 +1,1 @@
-web: gunicorn django_begin.wsgi
+web: gunicorn config.wsgi

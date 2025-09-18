@@ -1,0 +1,293 @@
+/* ====================== */
+/* Animatsiyali gradient fon - sahifa fonining rang o'zgarishi */
+/* ====================== */
+body {
+    margin: 0; /* sahifa chetlaridagi bo'shliqni olib tashlash */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* matn shrifti */
+    color: #f5f5f5; /* asosiy matn rangi (och kulrang) */
+    text-align: center; /* matnni markazlashtirish */
+    min-height: 100vh; /* minimal balandlik - to'liq ekran */
+    overflow-x: hidden; /* gorizontal scroll yo'q qilish */
+    display: flex; /* flexbox layout */
+    flex-direction: column; /* vertikal joylashish */
+
+    /* Gradient fon - 4 xil rang orasida o'zgaradi */
+    background: linear-gradient(-45deg, #1c1f4a, #203a43, #1a2c47, #0f2027);
+    background-size: 400% 400%; /* fonni kattalashtirish animatsiya uchun */
+    animation: gradientMove 15s ease infinite; /* 15 soniyada takrorlanadigan animatsiya */
+}
+
+/* Gradient harakat animatsiyasi */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; } /* boshlanish pozitsiyasi */
+    50% { background-position: 100% 50%; } /* o'rta pozitsiya */
+    100% { background-position: 0% 50%; } /* qaytish pozitsiyasi */
+}
+
+/* ====================== */
+/* NAVBAR - yuqoridagi navigatsiya menu */
+/* ====================== */
+nav {
+    background: rgba(0,0,0,0.7); /* qora fon 70% shaffoflik bilan */
+    padding: 10px; /* ichki bo'shliq */
+    display: flex; /* flexbox layout */
+    justify-content: center; /* markazlash */
+    gap: 30px; /* bo'limlar orasidagi masofa */
+    flex-wrap: wrap; /* kichik ekranda qator bilan tushirish */
+    position: sticky; /* sahifa scroll qilganda tepada qoladi */
+    top: 0; /* tepadan 0 masofa */
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.5); /* soya effekti */
+    z-index: 10; /* boshqa elementlardan ustun turishi */
+}
+
+/* Navigatsiya linklari */
+.nav-link {
+    color: #FFD700; /* oltin rang */
+    text-decoration: none; /* pastki chiziq yo'q */
+    font-weight: bold; /* qalin matn */
+    padding: 12px 24px; /* ichki bo'shliq */
+    border-radius: 15px; /* burchaklarni yumaloqlash */
+    font-size: 1.4rem; /* matn hajmi */
+    transition: all 0.3s ease; /* yumshoq o'tish effekti */
+}
+
+/* Link ustiga sichqoncha kelganda va aktiv holat */
+.nav-link:hover,
+.active {
+    background: #ffdd57; /* sariq fon */
+    color: #1e1e2f; /* quyuq matn rangi */
+}
+
+/* ====================== */
+/* MAIN CONTENT - asosiy kontent qismi */
+/* ====================== */
+main {
+    flex: 1; /* qolgan bo'shliqni egallash */
+    display: flex; /* flexbox layout */
+    flex-direction: column; /* vertikal joylashish */
+    justify-content: flex-start; /* yuqoridan boshlash */
+    align-items: center; /* markazlashtirish */
+    padding: 40px 20px 20px; /* ichki bo'shliq (yuqori, yon, pastki) */
+    z-index: 5; /* fon elementlaridan ustun */
+}
+
+/* Sarlavhalar va paragraflar uchun umumiy stil */
+h1, h2, p {
+    margin: 10px 0; /* yuqori va pastki bo'shliq */
+    color: #FFD700; /* oltin rang */
+    animation: slideIn 1.5s ease forwards; /* paydo bo'lish animatsiyasi */
+}
+
+/* Elementlarning paydo bo'lish animatsiyasi */
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(40px); } /* ko'rinmas va pastda */
+    100% { opacity: 1; transform: translateY(0); } /* to'liq ko'rinadigan va o'z joyida */
+}
+
+/* Turli sarlavhalar uchun hajm */
+h1 { font-size: 5vw; } /* ekran kengligining 5% */
+h2 { font-size: 4vw; } /* ekran kengligining 4% */
+p  { font-size: 3.5vw; } /* ekran kengligining 3.5% */
+
+/* Ro'yxat (ul) elementlari */
+ul {
+    list-style: none; /* nuqtalarni olib tashlash */
+    padding: 0; /* ichki bo'shliq yo'q */
+    margin: 0; /* tashqi bo'shliq yo'q */
+    font-size: 4vw; /* hajm ekran kengligiga mos */
+}
+
+/* Ro'yxat elementlari orasidagi bo'shliq */
+li { margin: 4px 0; }
+
+/* ====================== */
+/* BACK BUTTON - orqaga qaytish tugmasi */
+/* ====================== */
+a.back {
+    display: inline-block; /* qatoriy-blok element */
+    margin-top: 20px; /* yuqoridan bo'shliq */
+    padding: 10px 20px; /* ichki bo'shliq */
+    background: #ffdd57; /* sariq fon */
+    color: #1e1e2f; /* quyuq matn */
+    border-radius: 25px; /* yumaloq burchaklar */
+    text-decoration: none; /* chiziq yo'q */
+    font-weight: bold; /* qalin matn */
+    transition: all 0.3s ease; /* yumshoq o'tish */
+}
+
+/* Orqaga tugmasi hover effekti */
+a.back:hover {
+    background: #ffc107; /* quyuqroq sariq */
+    transform: scale(1.05); /* biroz kattalashtirish */
+}
+
+/* ====================== */
+/* CONTENT IMAGES - kontent rasmlar */
+/* ====================== */
+.content-img {
+    max-width: 90%; /* maksimal kenglik 90% */
+    height: auto; /* avtomatik balandlik */
+    border-radius: 15px; /* yumaloq burchaklar */
+    margin-bottom: 20px; /* pastki bo'shliq */
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.6); /* soya effekti */
+    animation: slideInImg 2s ease forwards; /* paydo bo'lish animatsiyasi */
+}
+
+/* Rasmlar uchun paydo bo'lish animatsiyasi */
+@keyframes slideInImg {
+    0% { opacity: 0; transform: translateY(60px); } /* ko'rinmas va pastda */
+    100% { opacity: 1; transform: translateY(0); } /* to'liq ko'rinadigan */
+}
+
+/* ====================== */
+/* EXTRA LINKS - qo'shimcha linklar */
+/* ====================== */
+.extra {
+    color: #ffffff; /* oq rang */
+    text-decoration: none; /* chiziq yo'q */
+    font-weight: bold; /* qalin matn */
+    transition: all 0.3s ease; /* yumshoq o'tish */
+}
+
+/* Extra linklar hover effekti */
+.extra:hover {
+    color: darkcyan; /* quyuq ko'k-yashil */
+    transform: translateY(-5px); /* yuqoriga ko'tarish */
+}
+
+/* ====================== */
+/* SPECIFIC LINKS - maxsus linklar (yangi qo'shilgan) */
+/* ====================== */
+.specific-link {
+    color: white; /* oq rang */
+    text-decoration: none; /* chiziq yo'q */
+    font-weight: 900; /* eng qalin matn */
+    transition: color 0.3s ease; /* rang o'tish effekti */
+}
+
+/* Maxsus linklar hover effekti */
+.specific-link:hover {
+    color: darkcyan; /* quyuq ko'k-yashil */
+    text-decoration: none; /* chiziq yo'q qoladi */
+}
+
+/* YouTube & Telegram suzuvchi linklar */
+.youtube-link, .telegram-link {
+    display: inline-block; /* qatoriy-blok */
+    font-size: 3.5vw; /* hajm */
+    margin: 10px; /* atrofdagi bo'shliq */
+    animation: floatLinks 2s ease infinite alternate; /* suzish animatsiyasi */
+}
+
+/* Linklar suzish animatsiyasi */
+@keyframes floatLinks {
+    0% { transform: translateY(0px); } /* boshlang'ich pozitsiya */
+    100% { transform: translateY(-10px); } /* yuqoriga ko'tarilish */
+}
+
+/* ====================== */
+/* STARS BACKGROUND - yulduzlar foni (ixtiyoriy) */
+/* ====================== */
+.stars {
+    position: fixed; /* qo'zg'almas pozitsiya */
+    width: 100%; /* to'liq kenglik */
+    height: 100%; /* to'liq balandlik */
+    overflow: hidden; /* chiqib ketgan qismni yashirish */
+    z-index: -1; /* orqa fonda */
+}
+
+/* Yulduz elementi */
+.star {
+    position: absolute; /* mutlaq pozitsiya */
+    width: 2px; /* kenglik */
+    height: 2px; /* balandlik */
+    background: white; /* oq rang */
+    border-radius: 50%; /* dumaloq qilish */
+    animation: moveStar linear infinite; /* chiziqli harakat */
+}
+
+/* Yulduz harakat animatsiyasi */
+@keyframes moveStar {
+    from { transform: translateY(0); opacity: 1; } /* yuqoridan boshlanish */
+    to   { transform: translateY(100vh); opacity: 0; } /* pastga tushish va yo'qolish */
+}
+
+/* ====================== */
+/* RESPONSIVE MEDIA QUERY - mobil qurilmalar uchun */
+/* ====================== */
+@media (max-width: 768px) {
+    /* Asosiy ro'yxat elementlari mobil uchun */
+    main ul li {
+        font-weight: 900; /* maksimal qalinlik */
+        color: white; /* oq rang */
+        font-size: 22px; /* katta hajm mobil uchun */
+        margin: 10px 0; /* elementlar orasida ko'proq bo'shliq */
+        line-height: 1.5; /* qator balandligi */
+    }
+
+    /* Sarlavhalar mobil uchun */
+    h1 { font-size: 9vw; } /* katta sarlavha */
+    h2 { font-size: 7vw; } /* o'rta sarlavha */
+    p  { font-size: 6vw; } /* paragraf */
+    ul { font-size: 5.5vw; } /* ro'yxat asosiy hajmi */
+
+    /* Qo'shimcha resurslar va boshqa linklar mobil uchun */
+    .resources li,
+    .specific-link,
+    .extra {
+        font-size: 20px !important; /* katta linklar */
+        font-weight: 900 !important; /* maksimal qalinlik */
+        line-height: 1.6; /* qator orasidagi yaxshi masofa */
+        margin: 5px 0; /* yuqori-pastki bo'shliq */
+    }
+
+    /* YouTube va Telegram linklar mobil uchun */
+    .youtube-link, .telegram-link {
+        font-size: 5.5vw; /* katta hajm */
+        font-weight: 900; /* qalin */
+    }
+
+    /* Navigatsiya mobil uchun */
+    nav {
+        flex-wrap: nowrap; /* bir qatorda */
+        justify-content: center; /* markazda */
+    }
+
+    /* Navigatsiya linklari mobil uchun */
+    .nav-link {
+        font-size: 1rem; /* hajm */
+        padding: 10px 12px; /* ichki bo'shliq */
+        margin: -10px; /* siqish uchun */
+    }
+}
+
+/* ====================== */
+/* CONTACT LABELS - aloqa yorliqlari */
+/* ====================== */
+.contact-label {
+    color: #FFD700; /* oltin/sariq rang */
+    text-decoration: none; /* pastki chiziq yo'q */
+    font-weight: 900; /* maksimal qalinlik */
+}
+
+/* ====================== */
+/* UMUMIY LINKLAR STYLING - barcha linklar uchun umumiy stil */
+/* ====================== */
+.resources li a,
+.technologies li a,
+.extra,
+.contact-label a {
+    color: white; /* oq rang */
+    font-weight: 900; /* maksimal qalinlik */
+    text-decoration: none; /* pastki chiziq yo'q */
+    transition: color 0.3s ease; /* yumshoq rang o'tishi */
+}
+
+/* Umumiy linklar hover effekti */
+.resources li a:hover,
+.technologies li a:hover,
+.extra:hover,
+.contact-label a:hover {
+    color: darkcyan; /* hover ranggi quyuq ko'k-yashil */
+    text-decoration: none; /* chiziq yo'q qoladi */
+}

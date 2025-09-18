@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ current_page }} Page</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="stars">
+        {% for star in stars %}
+            <div class="star" style="top:{{ star.top }}px; left:{{ star.left }}px; animation-duration:{{ star.duration }}s;"></div>
+        {% endfor %}
+    </div>
+
+    <nav>
+        {% for section in sections %}
+            <a href="/page/{{ section }}/" class="nav-link {% if section == current_page %}active{% endif %}">
+                {{ section }}
+            </a>
+        {% endfor %}
+    </nav>
+
+    <main>
+        {% if current_page == "Home" %}
+            <h1>Dasturlash olamiga xush kelibsiz 🌍</h1>
+            <img src="{% static 'images/home.jpg' %}"
+                 alt="Programming World" class="content-img">
+            <p><b>Bu sayt orqali siz Frontend va Backend dasturlashni o'rganishingiz mumkin.</b></p></br>
+        <p>Yuqoridagi menyudan kerakli bo'limni tanlang 🚀</p></br>
+
+            <div class="extra-section">
+                <h2>Qo'shimcha resurslar 📚</h2>
+                <ul class="resources">
+                    <li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li>
+                    <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+                    <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+                    <li><a href="https://roadmap.sh/">Developer Roadmap</a></li>
+                    <li><a href="https://github.com/">GitHub</a></li>
+                    <li><a href="https://leetcode.com/">LeetCode</a></li>
+                </ul>
+            </div>
+
+        {% elif current_page == "Frontend" %}
+            <h1>Frontend bo'limi 🎨</h1>
+            <img src="{% static 'images/frontend.jpg' %}"
+                 alt="Frontend Development" class="content-img">
+            <p><b>Frontend — saytning tashqi ko'rinishi va foydalanuvchi ko'radigan qismi:</b></p>
+            <ul>
+                <li><b><a href="https://developer.mozilla.org/docs/Web/HTML" class="specific-link" target="_blank">HTML — saytning karkasi</a></b></li>
+                <li><b><a href="https://developer.mozilla.org/docs/Web/CSS" class="specific-link" target="_blank">CSS — dizayn va uslublar</a></b></li>
+                <li><b><a href="https://developer.mozilla.org/docs/Web/JavaScript" class="specific-link" target="_blank">JavaScript — interaktivlik</a></b></li>
+                <li><b><a href="https://react.dev/" class="specific-link" target="_blank">React.js — zamonaviy UI kutubxonasi</a></b></li>
+            </ul></br>
+        <p><b>Qo'shimcha resurslar:</b>
+                <a href="https://developer.mozilla.org/" class="extra">MDN</a>,
+                <a href="https://www.freecodecamp.org/" class="extra">FreeCodeCamp</a>,
+                <a href="https://react.dev/" class="extra">React Docs</a>
+            </p></br>
+            <p>💡 Maslahat: Frontendni o'rganishda amaliy mashqlar qilish eng samarali yo'l. Masalan, oddiy <b>portfolio sayt</b> tuzib ko'ring.</p>
+
+        {% elif current_page == "Backend" %}
+            <h1>Backend bo'limi ⚙️</h1>
+            <img src="{% static 'images/backend.jpg' %}" class="content-img" alt="Backend Development">
+        <p><b>Backend — saytning miyasidir, foydalanuvchi ko'rmaydigan, ammo hammasi ishlashini ta'minlaydigan qism:</b></p>
+            <ul>
+                <li><b><a href="https://www.python.org/" class="specific-link" target="_blank">Python — backend tili</a></b></li>
+                <li><b><a href="https://docs.djangoproject.com/" class="specific-link" target="_blank">Django — kuchli framework</a></b></li>
+                <li><b><a href="https://flask.palletsprojects.com/" class="specific-link" target="_blank">Flask — yengilroq framework</a></b></li>
+                <li><b><a href="https://fastapi.tiangolo.com/" class="specific-link" target="_blank">FastAPI — tezkor zamonaviy framework</a></b></li>
+                <li><b>Ma'lumotlar bazalari — <a href="https://sqlite.org/" class="specific-link" target="_blank">SQLite</a>, <a href="https://postgresql.org/" class="specific-link" target="_blank">PostgreSQL</a>, <a href="https://mysql.com/" class="specific-link" target="_blank">MySQL</a></b></li>
+            </ul><br>
+            <p><b>Qo'shimcha resurslar:</b>
+                <a href="https://docs.djangoproject.com/" class="extra">Django Docs</a>,
+                <a href="https://flask.palletsprojects.com/" class="extra">Flask Docs</a>,
+                <a href="https://fastapi.tiangolo.com/" class="extra">FastAPI Docs</a>
+            </p><br>
+            <p>💡 Maslahat: Backendni o'rganayotganda <b>API yaratish</b> va uni frontend bilan bog'lashni mashq qiling.</p>
+
+        {% elif current_page == "Contact" %}
+            <h1>Biz bilan bog'lanish 📞</h1>
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&auto=format&fit=crop&q=80"
+                 alt="Contact Us" class="content-img">
+            <p><b>Quyidagi manzillar orqali murojaat qilishingiz mumkin:</b></p>
+            <ul>
+                <li><span class="contact-label">Telegram: </span><a href="https://t.me/ZN_565" class="extra">ZN_565</a></li>
+                <li><span class="contact-label">Telefon: </span><a href="tel:+998934180450" class="extra">+998 93 418 04 50</a></li>
+                <li><span class="contact-label">Email: </span><a href="mailto:zokirjonaxmatov998@mail.ru" class="extra">zokirjonaxmatov998@mail.ru</a></li>
+            </ul>
+            <p>Shuningdek, ijtimoiy tarmoqlar orqali ham kuzatib borishingiz mumkin:</p>
+            <p>
+                <ul>
+                <li><span class="contact-label">YouTube: </span><a href="https://www.youtube.com/@Oybekjon_Nuriddinov" target="_blank" class="extra">Video darslar</a></li>
+                <li><span class="contact-label">Telegram Community: </span><a href="https://t.me/pythonuz" target="_blank" class="extra">Dasturchilar jamoasi</a></li>
+                </ul>
+            </p>
+
+        {% else %}
+            <h1>Bunday bo'lim mavjud emas ❌</h1>
+        {% endif %}
+
+        <a href="javascript:history.back()" class="back">⬅️ Orqaga</a>
+    </main>
+</body>
+</html>

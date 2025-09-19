@@ -9,7 +9,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Secret Key va Debug
-SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_key")
+SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["dasturlash-olami.onrender.com", "localhost", "127.0.0.1"]

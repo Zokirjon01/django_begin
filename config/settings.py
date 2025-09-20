@@ -1,5 +1,4 @@
 from pathlib import Path
-import dj_database_url
 from dotenv import load_dotenv
 import os
 
@@ -12,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["dasturlash-olami.onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["dasturlash-olami.onrender.com", "127.0.0.1"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -57,7 +56,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database (PostgreSQL ulanishi)
 DATABASES = {
-    'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '5432'),
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
